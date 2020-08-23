@@ -1,5 +1,5 @@
 /* 
-*   Keri this is a bock comment in javascript.
+*   Keri this is a block comment in javascript.
 *   When you convert this to python please add comments similar to this 
 *   so if you have a bug and you need help it is easier for me to see the problem
 *
