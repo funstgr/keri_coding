@@ -19,10 +19,15 @@ const cold_compress = (input) => {
     const lineMapArray =[];
 
     // iterate over each line and process the line
-    lines.forEach(line => {
-        const lineMap = processLine(line);
-        // push the returned value to the array
-        lineMapArray.push(lineMap);
+    lines.forEach((line, index) => {
+
+        let lineMap;
+        if(index > 0) {
+            lineMap = processLine(line);
+            // push the returned value to the array
+            lineMapArray.push(lineMap);
+        }
+       
     });
 
     // iterate over the lineMap and return a string output
