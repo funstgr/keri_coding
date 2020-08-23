@@ -1,3 +1,10 @@
+/* 
+*   Keri this is a bock comment in javascript.
+*   When you convert this to python please add comments similar to this 
+*   so if you have a bug and you need help it is easier for me to see the problem
+*
+*/
+
 const cold_compress = (input) => {
 
     const everything = "1234567890!@#$%^&*qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLXCVBNM:;?><._-+=";
@@ -11,7 +18,7 @@ const cold_compress = (input) => {
     // create an empty array to push to
     const lineMapArray =[];
 
-    // iterate over the line and process the line
+    // iterate over each line and process the line
     lines.forEach(line => {
         const lineMap = processLine(line);
         // push the returned value to the array
