@@ -65,7 +65,7 @@ const processLineMap = (lineMapArray) => {
             const char = actualKey[0];
             // get the value using the key from the map
             const value = map.get(key);
-            // the below is a ternerary statement which ensures the output is not null or undefined. 
+            // the below is a ternary statement which ensures the output is not null or undefined. 
             // when you have a number you need to use and empty string to add it to the beginning of a string ot you get an error
             output = output ? output + value + ' ' +  char + ' ' : '' + value + ' ' +  char + ' ' ;
         }
