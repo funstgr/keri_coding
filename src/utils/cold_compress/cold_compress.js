@@ -3,6 +3,10 @@
 *   When you convert this to python please add comments similar to this 
 *   so if you have a bug and you need help it is easier for me to see the problem
 *
+*   The reason why 4 was not counted it states the first line will be the number of lines
+*   I did not use the number of lines as a paramter as I was using forEach. 
+*
+*   If you use for loop you will need the number of lines as a loop control mechanism
 */
 
 const cold_compress = (input) => {
