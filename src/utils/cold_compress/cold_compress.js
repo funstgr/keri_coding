@@ -46,7 +46,7 @@ const processLine = (line) => {
             lineMap.set(key, current_quantity + 1);
         } else {
             counter = counter + 1;
-            key = counter + el;
+            key = el + counter;
             lineMap.set(key, 1);
         }
         previous_character = el;
@@ -64,7 +64,7 @@ const processLineMap = (lineMapArray) => {
             // if you have more than 9 this will be a bug
             const actualKey = key.split('');
             // get the char value
-            const char = actualKey[1];
+            const char = actualKey[0];
             // get the value using the key from the map
             const value = map.get(key);
             // the below is a ternerary statement which ensures the output is not null or undefined. 
