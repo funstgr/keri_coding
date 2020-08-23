@@ -1,18 +1,30 @@
 const cold_compress = (input) => {
 
     const everything = "1234567890!@#$%^&*qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLXCVBNM:;?><._-+=";
+
+    // convert the string to an array
     const everything_array = everything.split('');
-    // console.log(everything_array);
+
+    // split on the end of line character. You will have to check what this is in python
     const lines = input.split(/\r?\n/);
+
+    // create an empty array to push to
     const lineMapArray =[];
-    // console.log(lines);
-    // console.log('before for each ');
+
+    // iterate over the line and process the line
     lines.forEach(line => {
         const lineMap = processLine(line);
+        // push the returned value to the array
         lineMapArray.push(lineMap);
     });
+
+    // iterate over the lineMap and return a string output
     const output = processLineMap(lineMapArray);
+
+    // printing the output
     console.log(output);
+
+    // return the output to the calling method  ..... called from the test file.
     return output;
 }
 
@@ -20,9 +32,15 @@ const processLine = (line) => {
     let previous_character = '';
     const line_array = line.split('');
     const lineMap = new Map();
-    let counter = 1;
+
+    // counter used to ensure each key is unique as maps can only have 1 key 
+    // this removes the bug where the one line has 2 1's you will have to remove this counter value when you 
+    // process the map later
+    let counter = 0;
     let key;
     line_array.forEach((el) => {
+
+        // check to see if you are creating a new key or incrementing the current key
         if (el == previous_character){
             const current_quantity = lineMap.get(key);
             lineMap.set(key, current_quantity + 1);
@@ -42,10 +60,15 @@ const processLineMap = (lineMapArray) => {
     lineMapArray.forEach(map => {
         // console.log(map);
         for (let key of map.keys()) {
+            // turn the key into an array so you can get the char which is stored at position 1 in the array unless you have more than 9
+            // if you have more than 9 this will be a bug
             const actualKey = key.split('');
+            // get the char value
             const char = actualKey[1];
+            // get the value using the key from the map
             const value = map.get(key);
             // the below is a ternerary statement which ensures the output is not null or undefined. 
+            // when you have a number you need to use and empty string to add it to the beginning of a string ot you get an error
             output = output ? output + value + ' ' +  char + ' ' : '' + value + ' ' +  char + ' ' ;
         }
         output = output + "\r\n";
@@ -54,15 +77,5 @@ const processLineMap = (lineMapArray) => {
     
     return output;
 }
-
-const newLine = (lineMap) => {
-    let newLine = "";
-    for (let [key, value] of lineMap.entries()) {
-        console.log(key + ' = ' + value);
-    }
-    return newLine
-}
-
-
 
 export default cold_compress;
