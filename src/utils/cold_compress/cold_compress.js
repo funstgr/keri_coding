@@ -60,8 +60,6 @@ const processLineMap = (lineMapArray) => {
     lineMapArray.forEach(map => {
         // console.log(map);
         for (let key of map.keys()) {
-            // turn the key into an array so you can get the char which is stored at position 1 in the array unless you have more than 9
-            // if you have more than 9 this will be a bug
             const actualKey = key.split('');
             // get the char value
             const char = actualKey[0];
